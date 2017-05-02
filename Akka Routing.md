@@ -5,7 +5,7 @@ Routing can be done in Akka in two ways:
 * Create a router which manages routees itself
 * Use a self-contained router actor with configurable routing capabilities
 
-#How to use a simple router?
+# How to use a simple router?
 
 A simple router manages routees itself and has to do the following:
 
@@ -45,28 +45,28 @@ Then it just sends the incoming messages of type `Work` to routees as per the ro
 
 In case any of the routees is terminated, it will just create a new one and add it to routee set.
 
-#Which routing strategies are available in Akka
+# Which routing strategies are available in Akka
 Akka provides the following routing strategies:
 
-######RoundRobinRoutingLogic
+###### RoundRobinRoutingLogic
 Messages are routed in a round robin fashion.
 
-######RandomRoutingLogic
+###### RandomRoutingLogic
 Each time a messages arrives, the router picks a routee at random and forwards the meesages.
 
-######SmallestMailBoxRoutingLogic
+###### SmallestMailBoxRoutingLogic
 Messages are sent to actors with fewest messages in their mailbox.
 
-######BroadcastRoutingLogic
+###### BroadcastRoutingLogic
 Messages are sent to all the routees.
 
-######ScatterGatherFirstCompletedRoutingLogic
+###### ScatterGatherFirstCompletedRoutingLogic
 Messages are sent to all the routees and the response from the first one to reply is used. Responses from all other routees are discarded.
 
-######TailChoppingRoutingLogic
+###### TailChoppingRoutingLogic
 It first sends a messages to one of the routees (randomly picked). Then after a small delay, it will send the message to another (again randomly picked) and so on. Response from the first one to reply is used. Responses from all other routees are discarded.
 
-######ConsistentHashingRoutingLogic
+###### ConsistentHashingRoutingLogic
 Messages are sent in consistent hashing fashion.
 
 
